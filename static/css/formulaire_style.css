@@ -1,0 +1,117 @@
+body {
+    color: #f1f1f1;
+    background-color: #1c3f2c;
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    line-height: 1.6em;
+}
+h1{
+    display: flex;
+    text-transform: uppercase;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.3em;
+    background-color: #284f39;
+    padding: 30px;
+
+}
+
+form{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+input{
+    margin: 20px;
+}
+
+label{
+    margin: 20px;
+}
+label:hover{
+    font-weight: bold;
+}
+
+
+.est-invalide {
+    border: 2px solid red;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+}
+  
+.error-message-visible {
+    visibility: visible;
+}
+
+
+.accueil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px;
+}
+
+
+a{
+    color: rgb(1, 1, 1);
+    background-color: #1e9191;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    border-radius: 25px;
+    text-decoration: none;
+    line-height: 50px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px; 
+}
+
+
+
+button[type="submit"] {
+    float: left;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 15px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+button[type="submit"]:hover {
+    background: #0b7dda;
+}
+
+input{
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+
+form::after {
+    content: "";
+    clear: both;
+    display: table;
+}

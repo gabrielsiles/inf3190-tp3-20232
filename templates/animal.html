@@ -1,0 +1,66 @@
+<!--Cette page affiche les détails d'un animal spécifique.-->
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animal_style.css') }}">
+    <title>Description animal</title>
+  </head>
+
+  <body>
+    
+    {% block content %}
+
+    <div class="container my-5">
+        <h1 class="swing-in-top-fwd">Informations sur {{ animal.nom }}</h1>
+
+        <div class="row">
+          <div class="infos_animal slide-in-left">
+            <img src="{{ animal.image_url }}" alt="Photo de {{ animal.nom }}" style="width:200px; height:auto;">
+            <br>
+            <h2>Details de l'animal</h2>
+            
+            <p><strong>Name : </strong>{{ animal.nom }}</p>
+            
+            <p><strong>Espèces : </strong>{{ animal.espece }}</p>
+            
+            <p><strong>Race : </strong>{{ animal.race }}</p>
+            
+            <p><strong>Age : </strong>{{ animal.age }}</p>
+            
+            <p><strong>Description : </strong>{{ animal.description }}</p>
+          </div>
+
+          <div class="info_proprio slide-in-right">
+            <h2>Informations pour joindre le propriétaire</h2>
+
+            <p><strong>Email : </strong>{{ animal.courriel }}</p>
+            
+            <p><strong>Address : </strong>{{ animal.adresse }}</p>
+            
+            <p><strong>City : </strong>{{ animal.ville }}</p>
+            
+            <p><strong>Zip Code : </strong>{{ animal.cp }}</p>
+          </div>
+        </div>
+
+        <div class="footer-container">
+          <div class="contact">
+            <a href="mailto:{{ animal.courriel }}?subject=Intérêt pour adoption&body=Bonjour, je serait intéressé(e) à adopter votre animal nommé {{ animal.nom }}. Merci de me contacter dans les plus brefs délais pour discuter des détails.">Contacter le propriétaire par courriel</a>
+          </div>
+
+          <div class="adoption">
+            <a href="{{ url_for('form') }}" class="adoption_texte"> Mettez en adoption votre animal dès maintenant!</a>
+          </div>
+
+          <div class="accueil">
+            <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+          </div>
+        </div>
+
+    </div>
+    {% endblock %}
+  </body>
+</html>

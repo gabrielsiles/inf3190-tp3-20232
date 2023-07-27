@@ -1,0 +1,73 @@
+<!-- Cette page contient le formulaire pour mettre un animal en adoption.-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/formulaire_style.css') }}">
+    <title>Formulaire</title>
+</head>
+    <body>
+        <div class="container_adoption">
+            <h1>Mise en adoption</h1>
+
+            <form id="forme_adoption" action="/add_animal" method="POST">
+                <label for="nom_animal">Nom de l'animal</label>
+                <input type="text" id="nom_animal" name="nom_animal">
+                <div class="error-message" id="message_nom"></div>
+                <div class="error-message" id="message_nom_vide"></div>
+
+                <label for="espece_animal">Espèce de l'animal</label>
+                <input type="text" id="espece_animal" name="espece_animal">
+                <div class="error-message" id="message_espece_animal_vide"></div>
+
+                <label for="race_animal">Race de l'animal</label>
+                <input type="text" id="race_animal" name="race_animal">
+                <div class="error-message" id="message_race_animal_vide"></div>
+
+                <label for="age_animal">Âge de l'animal</label>
+                <input type="number" id="age_animal" name="age_animal">
+                <div class="error-message" id="message_age"></div>
+                <div class="error-message" id="message_age_animal_vide"></div>
+
+                <label for="description">Description de l'animal</label>
+                <input type="text" id="description" name="description">
+                <div class="error-message" id="message_description_vide"></div>
+
+                <label for="adresse_courriel">Adresse courriel du propriétaire</label>
+                <input type="text" id="adresse_courriel" name="adresse_courriel">
+                <div class="error-message" id="message_courriel"></div>
+                <div class="error-message" id="message_adresse_courriel_vide"></div>
+
+                <label for="adresse_animal">Adresse où récuperer l'animal</label>
+                <input type="text" id="adresse_animal" name="adresse_animal">
+                <div class="error-message" id="message_adresse_animal_vide"></div>
+
+                <label for="ville">Ville</label>
+                <input type="text" id="ville" name="ville">
+                <div class="error-message" id="message_ville_vide"></div>
+
+                <label for="code_postal">Code Postal</label>
+                <input type="text" id="code_postal" name="code_postal">
+                <div class="error-message" id="message_postal"></div>
+                <div class="error-message" id="message_code_postal_vide"></div>
+
+                <div class="form-container">
+                    <button type="submit">Soumettre</button>
+                </div>
+            </form>
+
+            <div class="accueil">
+                <a href="{{ url_for('index') }}">Retour à l'accueil</a>
+            </div>
+
+        </div>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+    </body>
+
+</html>
+
+

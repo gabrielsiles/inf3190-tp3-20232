@@ -34,6 +34,8 @@ def _build_animal(result_set_item):
 class Database:
     def __init__(self):
         self.connection = None
+       
+
 
     def get_connection(self):
         if self.connection is None:
@@ -76,3 +78,23 @@ class Database:
         lastId = cursor.fetchone()[0]
         connection.commit()
         return lastId
+
+    def search_animals(self, query):
+        query = query.strip() 
+        if not query:  
+            return []
+            
+        cursor = self.get_connection().cursor()
+        query = f"%{query}%"
+        sql = ("SELECT id, nom, espece, race, age, description, "
+            "courriel, adresse, ville, cp FROM animaux "
+            "WHERE nom LIKE ? OR description LIKE ?")
+        cursor.execute(sql, (query, query))
+        rows = cursor.fetchall()
+        return [_build_animal(row) for row in rows]
+
+    
+   
+
+    
+   

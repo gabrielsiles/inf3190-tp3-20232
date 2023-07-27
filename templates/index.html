@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="fr">
+  <!-- C'est la page d'accueil qui affiche les animaux disponibles.-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/acceuil_style.css') }}">
+      <title>Acceuil</title>
+  </head>
+
+  <body>
+    <h1>Adoption d'animaux de compagnie</h1>
+    {% block content %}
+    <div class="container_index">
+        <form action="/resultats" method="GET">
+            <input type="text" name="query" placeholder="Recherche...">
+            <button type="submit">Rechercher</button>
+        </form>
+        <br>
+        <a href="{{ url_for('form') }}" class="form">Cliquez ici pour mettre votre animal en adoption</a>
+    </div>
+        <div class="sous_container">
+            <h2>Liste des animaux disponible</h2>
+
+            <ul>
+                {% for animal in animaux %}
+                    <li>
+                        <div class="list-container">
+                            <div class="animal-image">
+                                <img src="{{ animal.image_url }}" alt="{{ animal.nom }}" onerror="this.style.display='none'">
+
+                            </div>
+                            <div class="animal-details">
+                            <div class="animal-info">
+                                <p><strong>Nom:</strong> {{ animal.nom }}</p>
+                                <p><strong>Espèce:</strong> {{ animal.espece }}</p>
+                                <p><strong>Race:</strong> {{ animal.race }}</p>
+                                <p><strong>Age:</strong> {{ animal.age }}</p>
+                                <p><strong>Description:</strong></p>
+                                <p>{{ animal.description }}</p>
+                            </div>
+                            <div class="owner-info">
+                                <p><strong>Email:</strong> {{ animal.courriel }}</p>
+                                <p><strong>Addresse:</strong> {{ animal.adresse }}</p>
+                                <p><strong>Ville:</strong> {{ animal.ville }}</p>
+                                <p><strong>Code Postal:</strong> {{ animal.cp }}</p>
+                                <a href="{{ url_for('animal', animal_id=animal.id) }}" class="details">Voir les détails</a>
+                            </div>
+                            </div>
+                        </div>
+                        <hr>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endblock %}
+  </body>
+</html>
